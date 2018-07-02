@@ -33,7 +33,7 @@ class DeckTest < Minitest::Test
   end
 
   def test_it_can_sort_a_deck
-    skip
+    # skip
     card_1 = Card.new("4","Hearts")
     card_2 = Card.new("Jack", "Clubs")
     card_3 = Card.new("5", "Diamonds")
