@@ -5,28 +5,6 @@ class Deck
 
   def initialize(cards)
     @cards = cards
-    @deck_map = {
-      "2" => 2,
-      "3" => 3,
-      "4" => 4,
-      "5" => 5,
-      "6" => 6,
-      "7" => 7,
-      "8" => 8,
-      "9" => 9,
-      "10" => 10,
-      "Jack" => 11,
-      "Queen" => 12,
-      "King" => 13,
-      "Ace" => 14,
-      "Joker" => 15,
-      "Clubs" => 0.25,
-      "Diamonds" => 0.5,
-      "Hearts" => 0.75,
-      "Spades" => 1,
-      "Red" => 1,
-      "Black" => 2,
-    }
   end
 
   def count
@@ -34,16 +12,19 @@ class Deck
   end
 
   def sort
-    card_value = @cards.map do |card|
-      @deck_map[card.value] + @deck_map[card.suit]
+    card_value = @cards.each do |card|
+      require "pry"; binding.pry
+      @deck_map[card.value].to_f + @deck_map[card.suit]
       end
-    index_value = @cards.map.with_index do |card, index|
-      @deck_map[index + 1] + @deck_map[index + 1]
-      end
+        @cards.map.with_index do |card, index|
+          if card_value[index + 0] > card_value[index + 1]
+            @cards[index], @cards[index +1] = @cards[index + 1], @cards[index]
+          # else
+          #   @cards[index + 0] = @cards[index + 1]
       # require "pry"; binding.pry
-        if card_value > index_value
-          cards[index], cards[index = 1] = cards[index + 1], cards[index]
+        # if card_value > index_value
         end
+      end
   end
 
   def merge_sort
