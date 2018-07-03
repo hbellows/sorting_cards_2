@@ -13,9 +13,9 @@ class Deck
 
   def sort
     (@cards.length - 1).times do |index|
-      if @cards[index].total_value > @cards[index +1].total_value
+      if @cards[index].total_value > @cards[index + 1].total_value
         @cards[index], @cards[index + 1] = @cards[index + 1], @cards[index]
-        end
+      end
     end
     @cards
   end
