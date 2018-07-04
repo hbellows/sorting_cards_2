@@ -5,7 +5,10 @@ class Card
   def initialize(value, suit)
     @value = value
     @suit = suit
-    @card_value_map = {"2" => 2,
+  end
+
+  def total_value
+    card_value_map = {"2" => 2,
                        "3" => 3,
                        "4" => 4,
                        "5" => 5,
@@ -25,10 +28,8 @@ class Card
                        "Spades" => 1,
                        "Red" => 1,
                        "Black" => 2}
-  end
 
-  def total_value
-    @card_value_map[@suit] + @card_value_map[@value]
+    card_value_map[@suit] + card_value_map[@value]
   end
 
 end
