@@ -22,6 +22,8 @@ class Deck
 
 
 # I understand the concept here, recursively splitting the array halves down and comparing, swapping, rebuilding, but I did get quite a bit of help setting up the algorithm.
+
+#It only works if the Aces are split between the left and right array; if there is one Ace per array it works, if both are in either the left or right array, it doesn't work???
   def merge_sort
     if @cards.length <= 1
       @cards
@@ -30,12 +32,10 @@ class Deck
       left = @cards[0..(mid - 1)]
       right = @cards[mid..@cards.length]
       merge(left, right)
-      # require "pry"; binding.pry
     end
   end
 
   def merge(left, right)
-    # require "pry"; binding.pry
     if left.empty?
       right
     elsif right.empty?
