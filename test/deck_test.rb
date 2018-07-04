@@ -39,20 +39,24 @@ class DeckTest < Minitest::Test
     card_3 = Card.new("5", "Diamonds")
     card_4 = Card.new("Ace", "Spades")
     card_5 = Card.new("Ace", "Diamonds")
-    deck = Deck.new([card_1, card_2, card_3, card_4, card_5])
-# require "pry"; binding.pry
-    assert_equal [card_1, card_3, card_2, card_5, card_4], deck.sort
+    card_6 = Card.new("Black", "Joker")
+    deck = Deck.new([card_1, card_2, card_3, card_4, card_5, card_6])
+
+    assert_equal [card_1, card_3, card_2, card_5, card_4, card_6], deck.sort
   end
 
   def test_it_can_merge_sort_a_deck
-    skip
+    # skip
     card_1 = Card.new("4","Hearts")
     card_2 = Card.new("Jack", "Clubs")
     card_3 = Card.new("5", "Diamonds")
     card_4 = Card.new("Ace", "Spades")
     card_5 = Card.new("Ace", "Diamonds")
-    deck = Deck.new([card_1, card_2, card_3, card_4, card_5])
+    card_6 = Card.new("Black", "Joker")
+    deck = Deck.new([card_1, card_2, card_3, card_4, card_5, card_6])
 
-    assert_equal [card_1, card_3, card_2, card_5, card_4], deck.merge_sort
+    expected = [card_1, card_3, card_2, card_5, card_4, card_6]
+
+    assert_equal expected, deck.merge_sort
   end
 end
